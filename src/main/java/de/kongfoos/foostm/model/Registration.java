@@ -1,76 +1,49 @@
 package de.kongfoos.foostm.model;
 
-import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 
-import de.kongfoos.foostm.model.discipline.Discipline;
-import javafx.beans.property.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableMap;
-
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
+import java.util.List;
 
-
-/**
- * Created by patrick on 23/06/16.
- */
 public class Registration {
-    private final SimpleObjectProperty<Team> team = new SimpleObjectProperty<>();
-    private final Type type;
+    private final Team team;
 
-    private final SimpleMapProperty<Discipline, SimpleBooleanProperty> disciplineMap = new SimpleMapProperty<>(FXCollections.observableHashMap());
-    private final SimpleObjectProperty<RegistrationStatus> status = new SimpleObjectProperty<>(RegistrationStatus.OPEN);
+    private final List<Discipline> disciplines = Lists.newArrayList();
+    private RegistrationStatus status = RegistrationStatus.OPEN;
 
-    public Registration(Team team, Collection<Discipline> disciplines) {
-        this.team.set(team);
-        this.type = team.getType();
-        disciplines.forEach(d -> disciplineMap.put(d, new SimpleBooleanProperty()));
+    public Registration(@NotNull Team team, @NotNull Collection<Discipline> disciplines) {
+        this.team = team;
+        this.disciplines.addAll(disciplines);
     }
 
     public Team getTeam() {
-        return team.get();
+        return team;
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    public ObservableMap<Discipline, SimpleBooleanProperty> getDisciplineMap() {
-        return disciplineMap.get();
-    }
-
-    public SimpleMapProperty<Discipline, SimpleBooleanProperty> disciplineMapProperty() {
-        return disciplineMap;
-    }
-
-    public void registerForDiscipline(Discipline discipline) {
-        Preconditions.checkNotNull(discipline, "cannot create registration for null discipline");
-        disciplineMap.get(discipline).set(true);
-        setStatus(RegistrationStatus.REGISTERED);
-    }
-
-    public void unregisterFromDiscipline(Discipline discipline) {
-        Preconditions.checkNotNull(discipline, "cannot create registration for null discipline");
-        disciplineMap.get(discipline).set(false);
-        if (!disciplineMap.values().stream().anyMatch(BooleanPropertyBase::get)) {
-            setStatus(RegistrationStatus.OPEN);
-        }
-    }
-
-    public String getName() {
-        return team.get().getName();
-    }
-
-    public String getStatus() {
-        return status.get().toString();
-    }
-
-    public SimpleObjectProperty<RegistrationStatus> statusProperty() {
+    public RegistrationStatus getStatus() {
         return status;
     }
 
     public void setStatus(RegistrationStatus status) {
-        this.status.set(status);
+        this.status = status;
     }
 
+    public List<Discipline> getDisciplines() {
+        return disciplines;
+    }
 
+    public void addDiscipline(@NotNull Discipline discipline) {
+        if (!this.disciplines.contains(discipline)) {
+            this.disciplines.add(discipline);
+            setStatus(RegistrationStatus.REGISTERED);
+        }
+    }
+
+    public void removeDiscipline(@NotNull Discipline discipline) {
+        disciplines.remove(discipline);
+        if (disciplines.isEmpty()) {
+            setStatus(RegistrationStatus.OPEN);
+        }
+    }
 }

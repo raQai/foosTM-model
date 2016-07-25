@@ -1,20 +1,20 @@
-package de.kongfoos.foostm.model.discipline;
+package de.kongfoos.foostm.model;
 
+import com.google.common.collect.Lists;
+import de.kongfoos.foostm.model.match.Match;
+import de.kongfoos.foostm.model.table.Table;
+
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import com.google.common.base.Preconditions;
-import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
-
-import de.kongfoos.foostm.model.Team;
-import de.kongfoos.foostm.model.Type;
-
 public class Discipline {
     private final List<Predicate<Team>> participationRules = Lists.newArrayList();
     private final List<Team> teams = Lists.newArrayList();
+    private final List<Match> matches = Lists.newArrayList();
+    private final List<Table> tables = Lists.newArrayList();
     private String name;
     private String shortName;
     private Type type;
@@ -39,10 +39,6 @@ public class Discipline {
         this.shortName = shortName;
     }
 
-    public List<Predicate<Team>> getParticipationRules() {
-        return participationRules;
-    }
-
     private void setParticipationRules(Collection<Predicate<Team>> rules) {
         this.participationRules.addAll(rules);
     }
@@ -60,7 +56,7 @@ public class Discipline {
     }
 
     public boolean addTeam(Team team) {
-        if (team != null && team.isAllowedToParticipate(this)) {
+        if (team != null && this.allowsParticipation(team)) {
             teams.add(team);
             return true;
         }
@@ -71,18 +67,53 @@ public class Discipline {
         return type;
     }
 
+    private void setType(Type type) {
+        this.type = type;
+    }
+
+    public boolean allowsParticipation(Team team) {
+        return participationRules.stream().allMatch(rule -> rule.test(team));
+    }
+
     public boolean isSingles() {
         return this.type.equals(Type.SINGLES);
     }
+
     public boolean isDoubles() {
         return this.type.equals(Type.DOUBLES);
     }
+
     public boolean isTeam() {
         return this.type.equals(Type.TEAM);
     }
 
-    private void setType(Type type) {
-        this.type = type;
+    public List<Match> getMatches() {
+        return matches;
+    }
+
+    public void addMatch(@NotNull Match match) {
+        this.matches.add(match);
+    }
+
+    public List<Table> getTables() {
+        return tables;
+    }
+
+    public void addTable(@NotNull Table table) {
+        this.tables.add(table);
+    }
+
+    public void removeTable(@NotNull Table table) {
+        this.tables.remove(table);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Discipline) {
+            return this.getName().equals(((Discipline) obj).getName())
+                    || this.getShortName().equals(((Discipline) obj).getShortName());
+        }
+        return false;
     }
 
     public static class Builder {
@@ -91,17 +122,13 @@ public class Discipline {
         private final Type type;
         private final List<Predicate<Team>> participationRules = Lists.newArrayList();
 
-        public Builder(String name, String shortName, Type type) {
-            Preconditions.checkArgument(!Strings.isNullOrEmpty(name), "empty name is not allowed");
-            Preconditions.checkArgument(!Strings.isNullOrEmpty(shortName), "empty short name is not allowed");
-            Preconditions.checkNotNull(type, "null type discipline not allowed");
+        public Builder(@NotNull String name, @NotNull String shortName, @NotNull Type type) {
             this.name = name;
             this.shortName = shortName;
             this.type = type;
         }
 
-        public Builder addRule(Predicate<Team> rule) {
-            Preconditions.checkNotNull(rule, "Null participation rule not allowed");
+        public Builder addRule(@NotNull Predicate<Team> rule) {
             this.participationRules.add(rule);
             return this;
         }

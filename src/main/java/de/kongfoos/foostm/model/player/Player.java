@@ -3,11 +3,9 @@ package de.kongfoos.foostm.model.player;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-/**
- * Created by patrick on 17/06/16.
- */
 public class Player implements Comparable<Player> {
     private String forename;
     private String surname;
@@ -97,7 +95,7 @@ public class Player implements Comparable<Player> {
         private String dtfb;
         private String club;
 
-        public Builder(String forename, String surname) {
+        public Builder(@NotNull String forename, @NotNull String surname) {
             Preconditions.checkArgument(!Strings.isNullOrEmpty(forename), "Empty forename not allowed");
             Preconditions.checkArgument(!Strings.isNullOrEmpty(surname), "Empty surname not allowed");
             this.forename = forename;

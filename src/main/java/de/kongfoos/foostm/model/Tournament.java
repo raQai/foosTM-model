@@ -1,49 +1,35 @@
 package de.kongfoos.foostm.model;
 
-import java.util.List;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
-import de.kongfoos.foostm.model.discipline.Discipline;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 public class Tournament {
     private final List<Discipline> disciplines = Lists.newArrayList();
-    private final ObservableList<Registration> registrations = FXCollections.observableArrayList();
-
-    public Tournament() {
-    }
-
-    public void addDiscipline(Discipline discipline) {
-        Preconditions.checkArgument(!disciplines.stream().anyMatch(d ->
-                d.getName().equals(discipline.getName()) ||
-                        d.getShortName().equals(discipline.getShortName())
-        ));
-        disciplines.add(discipline);
-    }
-
-    public void removeDiscipline(Discipline discipline) {
-        // TODO await confirmation because all teams will be deleted
-        disciplines.remove(discipline);
-    }
+    private final List<Registration> registrations = Lists.newArrayList();
 
     public List<Discipline> getDisciplines() {
         return disciplines;
     }
 
-    public Discipline getDisciplineByShortName(String shortName) {
-        return disciplines.stream().filter(d -> d.getShortName().equals(shortName)).findFirst().orElse(null);
+    public void addDiscipline(@NotNull Discipline discipline) {
+        Preconditions.checkArgument(disciplines.stream().noneMatch(d -> d.equals(discipline)),
+                "Discipline " + discipline.getShortName() + " already in use");
+        disciplines.add(discipline);
     }
 
-    public void addRegistration(Registration registration) {
-        Preconditions.checkNotNull(registration, "Null registration not allowed");
+    public void removeDiscipline(@NotNull Discipline discipline) {
+        // TODO await confirmation because all teams will be deleted
+        disciplines.remove(discipline);
+    }
+
+    public void addRegistration(@NotNull Registration registration) {
         registrations.add(registration);
     }
 
-    public ObservableList<Registration> getRegistrations() {
+    public List<? extends Registration> getRegistrations() {
         return registrations;
     }
 }

@@ -1,12 +1,10 @@
 package de.kongfoos.foostm.model;
 
-import javafx.beans.property.SimpleStringProperty;
-
-/**
- * Created by patrick on 23/06/16.
- */
 public enum RegistrationStatus {
-    COMPLETE("Complete"), OPEN("Open"), PREREGISTERED("Preregistered"), REGISTERED("Registered");
+    COMPLETE("Complete"),
+    OPEN("Open"),
+    PREREGISTERED("Preregistered"),
+    REGISTERED("Registered");
 
     private final String status;
 
