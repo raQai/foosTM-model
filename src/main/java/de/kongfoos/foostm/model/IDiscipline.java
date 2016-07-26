@@ -17,8 +17,6 @@ interface IDiscipline<T extends ITeam, M extends MatchImpl<T, P>, P extends ITab
 
     void addRule(@NotNull Predicate<T> predicate);
 
-    boolean allowsParticipation(@NotNull T team);
-
     List<T> getTeams();
 
     boolean addTeam(@NotNull T team);
