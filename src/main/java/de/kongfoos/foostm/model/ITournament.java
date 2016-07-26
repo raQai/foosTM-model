@@ -1,17 +1,17 @@
 package de.kongfoos.foostm.model;
 
 import javax.validation.constraints.NotNull;
-import java.util.Collection;
+import java.util.List;
 
 public interface ITournament<D extends DisciplineImpl, R extends IRegistration> {
 
-    Collection<D> getDisciplines();
+    List<D> getDisciplines();
 
     boolean addDiscipline(@NotNull D discipline);
 
     boolean removeDiscipline(@NotNull D discipline);
 
-    Collection<R> getRegistrations();
+    List<R> getRegistrations();
 
     boolean addRegistration(@NotNull R registration);
 

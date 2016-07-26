@@ -4,7 +4,7 @@ import de.kongfoos.foostm.model.match.IMatch;
 import de.kongfoos.foostm.model.table.ITable;
 
 import javax.validation.constraints.NotNull;
-import java.util.Collection;
+import java.util.List;
 import java.util.function.Predicate;
 
 interface IDiscipline<T extends ITeam, M extends IMatch<T, P>, P extends ITable> {
@@ -13,25 +13,25 @@ interface IDiscipline<T extends ITeam, M extends IMatch<T, P>, P extends ITable>
 
     String getShortName();
 
-    Collection<Predicate<T>> getParticipationRules();
+    List<Predicate<T>> getParticipationRules();
 
     void addParticipationRules(@NotNull Predicate<T> participationRules);
 
     boolean allowsParticipation(@NotNull T team);
 
-    Collection<T> getTeams();
+    List<T> getTeams();
 
     boolean addTeam(@NotNull T team);
 
     boolean removeTeam(@NotNull T team);
 
-    Collection<M> getMatches();
+    List<M> getMatches();
 
     boolean addMatch(@NotNull M match);
 
     boolean removeMatch(@NotNull M match);
 
-    Collection<P> getTables();
+    List<P> getTables();
 
     boolean addTable(@NotNull P table);
 

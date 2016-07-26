@@ -2,10 +2,10 @@ package de.kongfoos.foostm.model;
 
 import de.kongfoos.foostm.model.player.IPlayer;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface ITeam<P extends IPlayer> {
-    Collection<P> getPlayers();
+    List<P> getPlayers();
 
     Type getType();
 
