@@ -1,9 +1,10 @@
 package de.kongfoos.foostm.model.match;
 
 import de.kongfoos.foostm.model.GenericTeam;
+import de.kongfoos.foostm.model.ICanHasInit;
 import de.kongfoos.foostm.model.table.GenericTable;
 
-public abstract class GenericMatch<T extends GenericTeam, L extends GenericTable, M> {
+public abstract class GenericMatch<T extends GenericTeam, L extends GenericTable, M> implements ICanHasInit {
     private final T team1;
     private final T team2;
     private T winner;

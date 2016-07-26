@@ -1,6 +1,10 @@
 package de.kongfoos.foostm.model.player;
 
-public abstract class GenericPlayer<S, G, D> implements Comparable<GenericPlayer> {
+import de.kongfoos.foostm.model.ICanHasInit;
+
+import java.util.Date;
+
+public abstract class GenericPlayer<S, G, D> implements Comparable<GenericPlayer>, ICanHasInit {
     private S forename;
     private S surname;
     private G gender;
@@ -18,43 +22,43 @@ public abstract class GenericPlayer<S, G, D> implements Comparable<GenericPlayer
         return forename;
     }
 
-    public abstract void setForename(S forename);
+    public abstract void setForename(String forename);
 
     public S getSurname() {
         return surname;
     }
 
-    public abstract void setSurname(S surname);
+    public abstract void setSurname(String surname);
 
     public G getGender() {
         return gender;
     }
 
-    public abstract void setGender(G gender);
+    public abstract void setGender(Gender gender);
 
     public D getBirthDate() {
         return birthDate;
     }
 
-    public abstract void setBirthDate(D birthDate);
+    public abstract void setBirthDate(Date birthDate);
 
     public S getItsf() {
         return itsf;
     }
 
-    public abstract void setItsf(S itsf);
+    public abstract void setItsf(String itsf);
 
     public S getDtfb() {
         return dtfb;
     }
 
-    public abstract void setDtfb(S dtfb);
+    public abstract void setDtfb(String dtfb);
 
     public S getClub() {
         return club;
     }
 
-    public abstract void setClub(S club);
+    public abstract void setClub(String club);
 
     abstract String getName();
 

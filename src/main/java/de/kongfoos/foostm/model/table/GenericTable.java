@@ -13,11 +13,11 @@ public abstract class GenericTable<K, T> {
         return number;
     }
 
-    public abstract void setNumber(K number);
+    public abstract void setNumber(int number);
 
     public T getType() {
         return type;
     }
 
-    public abstract void setType(T type);
+    public abstract void setType(TableType type);
 }

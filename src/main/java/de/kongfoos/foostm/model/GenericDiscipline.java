@@ -3,13 +3,14 @@ package de.kongfoos.foostm.model;
 import de.kongfoos.foostm.model.match.GenericMatch;
 import de.kongfoos.foostm.model.table.GenericTable;
 
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.function.Predicate;
 
 public abstract class GenericDiscipline<P extends Collection<Predicate<? extends GenericTeam>>,
         T extends Collection<? extends GenericTeam>,
         M extends Collection<? extends GenericMatch>,
-        L extends Collection<? extends GenericTable>, S, A> {
+        L extends Collection<? extends GenericTable>, S, A> implements ICanHasInit {
     private final S name;
     private final S shortName;
     private P participationRules;
@@ -35,41 +36,41 @@ public abstract class GenericDiscipline<P extends Collection<Predicate<? extends
         return participationRules;
     }
 
-    public void setParticipationRules(P participationRules) {
-        this.participationRules = participationRules;
-    }
+    public abstract void setParticipationRules(@NotNull Collection<Predicate<? extends GenericTeam>> participationRules);
+
+    public abstract void addParticipationRules(@NotNull Predicate<? extends GenericTeam> participationRules);
 
     public T getTeams() {
         return teams;
     }
 
-    public void setTeams(T teams) {
-        this.teams = teams;
-    }
+    public abstract boolean addTeams(@NotNull Collection<? extends GenericTeam> teams);
+
+    public abstract boolean removeTeams(@NotNull Collection<? extends GenericTeam> teams);
 
     public M getMatches() {
         return matches;
     }
 
-    public void setMatches(M matches) {
-        this.matches = matches;
-    }
+    public abstract boolean addMatches(@NotNull Collection<? extends GenericMatch> matches);
+
+    public abstract boolean removeMatches(@NotNull Collection<? extends GenericMatch> matches);
 
     public L getTables() {
         return tables;
     }
 
-    public void setTables(L tables) {
-        this.tables = tables;
-    }
+    public abstract boolean addTables(@NotNull Collection<? extends GenericTable> tables);
+
+    public abstract boolean removeTables(@NotNull Collection<? extends GenericTable> tables);
 
     public A getType() {
         return type;
     }
 
-    public abstract void setType(A type);
+    public abstract void setType(@NotNull Type type);
 
-    public abstract boolean allowsParticipation(Collection<? extends GenericTeam> team);
+    public abstract boolean allowsParticipation(@NotNull Collection<? extends GenericTeam> team);
 
     public abstract boolean isSingles();
 

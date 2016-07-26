@@ -4,7 +4,7 @@ import de.kongfoos.foostm.model.player.GenericPlayer;
 
 import java.util.Collection;
 
-public abstract class GenericTeam<P extends Collection<? extends GenericPlayer>, A, S> {
+public abstract class GenericTeam<P extends Collection<? extends GenericPlayer>, A, S> implements ICanHasInit {
     private final P players;
     private final A type;
     private S name;
@@ -26,5 +26,5 @@ public abstract class GenericTeam<P extends Collection<? extends GenericPlayer>,
         return name;
     }
 
-    public abstract void setName(S name);
+    public abstract void setName(String name);
 }
