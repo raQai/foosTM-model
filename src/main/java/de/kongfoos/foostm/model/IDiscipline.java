@@ -40,10 +40,4 @@ interface IDiscipline<T extends ITeam, M extends MatchImpl<T, P>, P extends ITab
     Type getType();
 
     void setType(@NotNull Type type);
-
-    boolean isSingles();
-
-    boolean isDoubles();
-
-    boolean isTeam();
 }
