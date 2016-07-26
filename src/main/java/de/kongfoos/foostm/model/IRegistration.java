@@ -1,13 +1,13 @@
 package de.kongfoos.foostm.model;
 
 import javax.validation.constraints.NotNull;
-import java.util.Collection;
+import java.util.List;
 
 public interface IRegistration<T extends ITeam, D extends IDiscipline> {
 
     T getTeam();
 
-    Collection<D> getDisciplines();
+    List<D> getDisciplines();
 
     boolean addDiscipline(@NotNull D discipline);
 
