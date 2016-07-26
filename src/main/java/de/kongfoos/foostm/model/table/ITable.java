@@ -2,9 +2,9 @@ package de.kongfoos.foostm.model.table;
 
 public interface ITable {
 
-    int getTableNumber();
+    int getID();
 
-    void setTableNumber(int number);
+    void setID(int number);
 
     TableType getType();
 
