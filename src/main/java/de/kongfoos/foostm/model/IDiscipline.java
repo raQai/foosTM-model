@@ -1,13 +1,13 @@
 package de.kongfoos.foostm.model;
 
-import de.kongfoos.foostm.model.match.IMatch;
+import de.kongfoos.foostm.model.match.MatchImpl;
 import de.kongfoos.foostm.model.table.ITable;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.function.Predicate;
 
-interface IDiscipline<T extends ITeam, M extends IMatch<T, P>, P extends ITable> {
+interface IDiscipline<T extends ITeam, M extends MatchImpl<T, P>, P extends ITable> {
 
     String getName();
 

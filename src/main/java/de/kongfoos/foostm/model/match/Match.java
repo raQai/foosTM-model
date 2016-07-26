@@ -39,12 +39,12 @@ public class Match {
     public void setWinner(Team winner) {
         this.winner = winner;
         if (winner != null) {
-            setStatus(MatchStatus.DECIDED);
+//            setStatus(MatchStatus.DECIDED);
         }
     }
 
     public void setDraw() {
-        setStatus(MatchStatus.DECIDED);
+//        setStatus(MatchStatus.DECIDED);
     }
 
     public MatchStatus getStatus() {
