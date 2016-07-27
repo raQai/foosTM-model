@@ -10,6 +10,8 @@ public interface IRegistration<T extends TeamImpl, D extends DisciplineImpl> {
 
     T getTeam();
 
+    void setTeam(@NotNull T team);
+
     List<D> getDisciplines();
 
     boolean addDiscipline(@NotNull D discipline);
