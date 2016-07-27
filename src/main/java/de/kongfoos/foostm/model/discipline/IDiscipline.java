@@ -19,16 +19,8 @@ interface IDiscipline<T extends TeamImpl, M extends MatchImpl<T>, P extends Tabl
 
     void setShortName(String s);
 
-    /**
-     * @deprecated use participation rules instead
-     */
-    @Deprecated
     Type getType();
 
-    /**
-     * @deprecated use participation rules instead
-     */
-    @Deprecated
     void setType(@NotNull Type type);
 
     List<Predicate<T>> getParticipationRules();
