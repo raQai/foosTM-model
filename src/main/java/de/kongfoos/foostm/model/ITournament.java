@@ -1,5 +1,8 @@
 package de.kongfoos.foostm.model;
 
+import de.kongfoos.foostm.model.discipline.DisciplineImpl;
+import de.kongfoos.foostm.model.registration.IRegistration;
+
 import javax.validation.constraints.NotNull;
 import java.util.List;
 

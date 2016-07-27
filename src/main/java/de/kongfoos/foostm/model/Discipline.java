@@ -3,6 +3,7 @@ package de.kongfoos.foostm.model;
 import com.google.common.collect.Lists;
 import de.kongfoos.foostm.model.match.Match;
 import de.kongfoos.foostm.model.table.Table;
+import de.kongfoos.foostm.model.team.Type;
 
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+@Deprecated
 public class Discipline {
     private final List<Predicate<Team>> participationRules = Lists.newArrayList();
     private final List<Team> teams = Lists.newArrayList();

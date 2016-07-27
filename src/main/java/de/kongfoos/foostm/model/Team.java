@@ -4,10 +4,12 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import de.kongfoos.foostm.model.player.Player;
+import de.kongfoos.foostm.model.team.Type;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Deprecated
 public class Team {
     private final List<Player> players;
     private final Type type;

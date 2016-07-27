@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Deprecated
 public class Tournament {
     private final List<Discipline> disciplines = Lists.newArrayList();
     private final List<Registration> registrations = Lists.newArrayList();

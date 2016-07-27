@@ -1,11 +1,13 @@
 package de.kongfoos.foostm.model;
 
 import com.google.common.collect.Lists;
+import de.kongfoos.foostm.model.registration.RegistrationStatus;
 
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 
+@Deprecated
 public class Registration {
     private final Team team;
 

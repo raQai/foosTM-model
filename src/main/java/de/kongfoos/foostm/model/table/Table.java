@@ -1,5 +1,6 @@
 package de.kongfoos.foostm.model.table;
 
+@Deprecated
 public class Table {
     private int number;
     private TableType type;

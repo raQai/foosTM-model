@@ -1,21 +1,33 @@
 package de.kongfoos.foostm.model.match;
 
-import de.kongfoos.foostm.model.ITeam;
-import de.kongfoos.foostm.model.table.ITable;
+import de.kongfoos.foostm.model.team.TeamImpl;
 
 import javax.validation.constraints.NotNull;
 
-interface IMatch<T extends ITeam, P extends ITable> {
+interface IMatch<T extends TeamImpl> {
 
     T getTeam1();
 
+    void setTeam1(@NotNull T team);
+
     T getTeam2();
 
-    P getTable();
-
-    void setTable(P table);
+    void setTeam2(@NotNull T team);
 
     MatchStatus getStatus();
 
     void setStatus(@NotNull MatchStatus status);
+
+    T getWinner();
+
+    void setWinner(@NotNull T team);
+
+    boolean isDraw();
+
+    void setDraw();
+
+    boolean isOpen();
+
+    void setOpen();
+
 }

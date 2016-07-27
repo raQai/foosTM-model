@@ -3,6 +3,7 @@ package de.kongfoos.foostm.model.match;
 import de.kongfoos.foostm.model.Team;
 import de.kongfoos.foostm.model.table.Table;
 
+@Deprecated
 public class Match {
     private final Team team1;
     private final Team team2;

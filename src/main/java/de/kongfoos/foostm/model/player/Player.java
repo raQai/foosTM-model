@@ -6,6 +6,7 @@ import com.google.common.base.Strings;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@Deprecated
 public class Player implements Comparable<Player> {
     private String forename;
     private String surname;

@@ -1,6 +1,8 @@
 package de.kongfoos.foostm.model.table;
 
-public interface ITable {
+import de.kongfoos.foostm.model.match.MatchImpl;
+
+interface ITable<M extends MatchImpl> {
 
     int getID();
 
@@ -9,4 +11,13 @@ public interface ITable {
     TableType getType();
 
     void setType(TableType type);
+
+    M getMatch();
+
+    void setMatch(M match);
+
+    void removeMatch();
+
+    boolean isFree();
+
 }
