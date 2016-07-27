@@ -1,12 +1,12 @@
-package de.kongfoos.foostm.model;
+package de.kongfoos.foostm.model.tournament;
 
 import de.kongfoos.foostm.model.discipline.DisciplineImpl;
-import de.kongfoos.foostm.model.registration.IRegistration;
+import de.kongfoos.foostm.model.registration.RegistrationImpl;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-public interface ITournament<D extends DisciplineImpl, R extends IRegistration> {
+public interface ITournament<D extends DisciplineImpl, R extends RegistrationImpl> {
 
     List<D> getDisciplines();
 
