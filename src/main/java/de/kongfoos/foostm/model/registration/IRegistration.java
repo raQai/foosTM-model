@@ -6,7 +6,7 @@ import de.kongfoos.foostm.model.team.TeamImpl;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-public interface IRegistration<T extends TeamImpl, D extends DisciplineImpl> {
+interface IRegistration<T extends TeamImpl, D extends DisciplineImpl> {
 
     T getTeam();
 
