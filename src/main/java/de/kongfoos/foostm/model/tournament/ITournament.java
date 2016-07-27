@@ -6,7 +6,7 @@ import de.kongfoos.foostm.model.registration.RegistrationImpl;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-public interface ITournament<D extends DisciplineImpl, R extends RegistrationImpl> {
+interface ITournament<D extends DisciplineImpl, R extends RegistrationImpl> {
 
     List<D> getDisciplines();
 
