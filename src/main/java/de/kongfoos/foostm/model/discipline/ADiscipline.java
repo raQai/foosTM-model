@@ -31,12 +31,8 @@ public abstract class ADiscipline<T extends ATeam, M extends AMatch<T>, P extend
     }
 
     @Override
-    public List<T> getTeams(Predicate<T> predicate) {
-        if (predicate == null) {
-            return getTeams();
-        } else {
-            return getTeams().stream().filter(predicate).collect(Collectors.toList());
-        }
+    public List<T> getTeams(@NotNull Predicate<T> predicate) {
+        return getTeams().stream().filter(predicate).collect(Collectors.toList());
     }
 
     @Override
