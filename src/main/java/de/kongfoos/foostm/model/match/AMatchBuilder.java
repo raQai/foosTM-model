@@ -1,15 +1,13 @@
 package de.kongfoos.foostm.model.match;
 
-import de.kongfoos.foostm.model.match.MatchImpl;
-import de.kongfoos.foostm.model.match.MatchStatus;
-import de.kongfoos.foostm.model.team.TeamImpl;
+import de.kongfoos.foostm.model.team.ATeam;
 
-public abstract class MatchBuilder<M extends MatchImpl, T extends TeamImpl> {
+public abstract class AMatchBuilder<M extends AMatch, T extends ATeam> {
 
     private final T team1;
     private final T team2;
 
-    protected MatchBuilder(T team1, T team2) {
+    protected AMatchBuilder(T team1, T team2) {
         this.team1 = team1;
         this.team2 = team2;
     }

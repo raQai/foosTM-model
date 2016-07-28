@@ -1,17 +1,20 @@
 package de.kongfoos.foostm.model.team;
 
-import de.kongfoos.foostm.model.player.PlayerImpl;
+import de.kongfoos.foostm.model.player.IPlayer;
 
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.List;
 
-interface ITeam<P extends PlayerImpl> {
+public interface ITeam<P extends IPlayer> {
 
     List<P> getPlayers();
 
-    void addPlayer(@NotNull P player);
+    void setPlayers(@NotNull Collection<P> players);
 
-    void removePlayer(@NotNull P player);
+    boolean addPlayer(@NotNull P player);
+
+    boolean removePlayer(@NotNull P player);
 
     String getName();
 

@@ -1,16 +1,13 @@
 package de.kongfoos.foostm.model.table;
 
-import de.kongfoos.foostm.model.table.TableImpl;
-import de.kongfoos.foostm.model.table.TableType;
-
 import javax.validation.constraints.NotNull;
 
-public abstract class TableBuilder<T extends TableImpl> {
+public abstract class ATableBuilder<T extends ATable> {
 
     private final int id;
     private final TableType type;
 
-    protected TableBuilder(@NotNull int id, @NotNull TableType type) {
+    protected ATableBuilder(@NotNull int id, @NotNull TableType type) {
         this.id = id;
         this.type = type;
     }
