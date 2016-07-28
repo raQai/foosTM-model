@@ -19,7 +19,8 @@ public abstract class ARegistration<T extends ATeam, D extends ADiscipline> impl
     public void setID(long id) {
         this.id = id;
     }
-    Override
+
+    @Override
     public void setDisciplines(@NotNull Collection<D> disciplines) {
         getDisciplines().forEach(this::removeDiscipline);
         disciplines.forEach(this::addDiscipline);
