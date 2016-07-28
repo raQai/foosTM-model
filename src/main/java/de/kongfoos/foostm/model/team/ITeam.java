@@ -12,9 +12,9 @@ public interface ITeam<P extends IPlayer> {
 
     void setPlayers(@NotNull Collection<P> players);
 
-    void addPlayer(@NotNull P player);
+    boolean addPlayer(@NotNull P player);
 
-    void removePlayer(@NotNull P player);
+    boolean removePlayer(@NotNull P player);
 
     String getName();
 
