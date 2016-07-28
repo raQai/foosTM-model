@@ -32,21 +32,27 @@ public interface IPlayer {
     String getName();
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "gender")
     Gender getGender();
 
     void setGender(@NotNull Gender gender);
 
+    @Transient
     boolean isMale();
 
+    @Transient
     boolean isFemale();
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "birth_date")
     Calendar getBirthDate();
 
     void setBirthDate(Calendar birthDate);
 
+    @Transient
     boolean isSenior();
 
+    @Transient
     boolean isJunior();
 
     @Column(name = "itsf")
