@@ -45,12 +45,4 @@ public interface ITeam<P extends IPlayer> {
 
     void setType(@NotNull Type type);
 
-    @Transient
-    boolean isSingles();
-
-    @Transient
-    boolean isDoubles();
-
-    @Transient
-    boolean isTeam();
 }

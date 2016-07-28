@@ -25,18 +25,4 @@ public abstract class ATeam<P extends APlayer> implements ITeam<P>{
         players.forEach(this::addPlayer);
     }
 
-    @Override
-    public boolean isSingles() {
-        return getType().equals(Type.SINGLES);
-    }
-
-    @Override
-    public boolean isDoubles() {
-        return getType().equals(Type.DOUBLES);
-    }
-
-    @Override
-    public boolean isTeam() {
-        return getType().equals(Type.TEAM);
-    }
 }
