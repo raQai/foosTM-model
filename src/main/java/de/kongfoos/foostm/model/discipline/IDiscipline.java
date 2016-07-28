@@ -1,15 +1,16 @@
 package de.kongfoos.foostm.model.discipline;
 
-import de.kongfoos.foostm.model.match.MatchImpl;
-import de.kongfoos.foostm.model.table.TableImpl;
-import de.kongfoos.foostm.model.team.TeamImpl;
+import de.kongfoos.foostm.model.match.IMatch;
+import de.kongfoos.foostm.model.table.ITable;
+import de.kongfoos.foostm.model.team.ITeam;
 import de.kongfoos.foostm.model.team.Type;
 
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
-interface IDiscipline<T extends TeamImpl, M extends MatchImpl<T>, P extends TableImpl<M>> {
+public interface IDiscipline<T extends ITeam, M extends IMatch<T>, P extends ITable<M>> {
 
     String getName();
 
@@ -25,17 +26,27 @@ interface IDiscipline<T extends TeamImpl, M extends MatchImpl<T>, P extends Tabl
 
     List<Predicate<T>> getParticipationRules();
 
-    void addRule(@NotNull Predicate<T> predicate);
+    void setPatricipationRules(@NotNull Collection<Predicate<T>> predicates);
+
+    boolean addRule(@NotNull Predicate<T> predicate);
+
+    boolean removeRule(@NotNull Predicate<T> predicate);
+
+    boolean allowsParticipation(@NotNull T team);
 
     List<T> getTeams();
 
-    List<T> getTeams(Predicate<T> predicate);
+    void setTeams(@NotNull Collection<T> teams);
+
+    List<T> getTeams(@NotNull Predicate<T> predicate);
 
     boolean addTeam(@NotNull T team);
 
     boolean removeTeam(@NotNull T team);
 
     List<M> getMatches();
+
+    void setMatches(@NotNull Collection<M> matches);
 
     boolean addMatch(@NotNull M match);
 
@@ -45,12 +56,12 @@ interface IDiscipline<T extends TeamImpl, M extends MatchImpl<T>, P extends Tabl
 
     List<P> getTables();
 
+    void setTables(@NotNull Collection<P> tables);
+
     boolean addTable(@NotNull P table);
 
     boolean removeTable(@NotNull P table);
 
     List<P> getFreeTables();
-
-    boolean allowsParticipation(@NotNull T team);
 
 }

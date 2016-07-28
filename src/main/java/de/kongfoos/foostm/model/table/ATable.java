@@ -1,8 +1,9 @@
 package de.kongfoos.foostm.model.table;
 
-import de.kongfoos.foostm.model.match.MatchImpl;
+import de.kongfoos.foostm.model.match.AMatch;
 
-public abstract class TableImpl<M extends MatchImpl> implements ITable<M> {
+public abstract class ATable<M extends AMatch> implements ITable<M> {
+
     @Override
     public void removeMatch() {
         setMatch(null);

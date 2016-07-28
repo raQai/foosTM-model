@@ -1,10 +1,10 @@
 package de.kongfoos.foostm.model.match;
 
-import de.kongfoos.foostm.model.team.TeamImpl;
+import de.kongfoos.foostm.model.team.ITeam;
 
 import javax.validation.constraints.NotNull;
 
-interface IMatch<T extends TeamImpl> {
+public interface IMatch<T extends ITeam> {
 
     T getTeam1();
 
@@ -18,10 +18,6 @@ interface IMatch<T extends TeamImpl> {
 
     void setStatus(@NotNull MatchStatus status);
 
-    T getWinner();
-
-    void setWinner(@NotNull T team);
-
     boolean isDraw();
 
     void setDraw();
@@ -29,5 +25,9 @@ interface IMatch<T extends TeamImpl> {
     boolean isOpen();
 
     void setOpen();
+
+    T getWinner();
+
+    void setWinner(@NotNull T team);
 
 }

@@ -1,10 +1,10 @@
 package de.kongfoos.foostm.model.match;
 
-import de.kongfoos.foostm.model.team.TeamImpl;
+import de.kongfoos.foostm.model.team.ATeam;
 
 import javax.validation.constraints.NotNull;
 
-public abstract class MatchImpl<T extends TeamImpl> implements IMatch<T> {
+public abstract class AMatch<T extends ATeam> implements IMatch<T> {
 
     @Override
     public T getWinner() {
