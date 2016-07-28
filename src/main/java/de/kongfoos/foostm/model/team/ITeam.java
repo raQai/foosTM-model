@@ -23,6 +23,7 @@ public interface ITeam<P extends IPlayer> {
 
     @OneToMany(targetEntity = IPlayer.class)
 //	@JoinColumn(name="pid", referencedColumnName="tid")
+//  FIXME is @Column(name = "players") needed here?
     List<P> getPlayers();
 
     void setPlayers(@NotNull Collection<P> players);
@@ -39,6 +40,7 @@ public interface ITeam<P extends IPlayer> {
     void setName(String name);
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "type")
     Type getType();
 
     void setType(@NotNull Type type);
