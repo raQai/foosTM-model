@@ -8,6 +8,16 @@ public abstract class PlayerImpl implements IPlayer {
     }
 
     @Override
+    public boolean isMale() {
+        return getGender().equals(Gender.MALE);
+    }
+
+    @Override
+    public boolean isFemale() {
+        return getGender().equals(Gender.FEMALE);
+    }
+
+    @Override
     public String toString() {
         return getName();
     }

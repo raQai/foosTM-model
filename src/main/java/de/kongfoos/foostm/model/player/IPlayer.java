@@ -55,4 +55,8 @@ interface IPlayer {
     @Transient
     String getName();
 
+    boolean isMale();
+
+    boolean isFemale();
+
 }
