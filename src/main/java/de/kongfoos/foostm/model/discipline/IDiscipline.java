@@ -28,8 +28,6 @@ public interface IDiscipline<T extends ITeam, M extends IMatch<T>, P extends ITa
 
     void setPatricipationRules(@NotNull Collection<Predicate<T>> predicates);
 
-    void clearParticipationRules();
-
     void addRule(@NotNull Predicate<T> predicate);
 
     boolean allowsParticipation(@NotNull T team);
@@ -37,8 +35,6 @@ public interface IDiscipline<T extends ITeam, M extends IMatch<T>, P extends ITa
     List<T> getTeams();
 
     void setTeams(@NotNull Collection<T> teams);
-
-    void clearTeams();
 
     List<T> getTeams(@NotNull Predicate<T> predicate);
 
@@ -50,8 +46,6 @@ public interface IDiscipline<T extends ITeam, M extends IMatch<T>, P extends ITa
 
     void setMatches(@NotNull Collection<M> matches);
 
-    void clearMatches();
-
     boolean addMatch(@NotNull M match);
 
     boolean removeMatch(@NotNull M match);
@@ -61,8 +55,6 @@ public interface IDiscipline<T extends ITeam, M extends IMatch<T>, P extends ITa
     List<P> getTables();
 
     void setTables(@NotNull Collection<P> tables);
-
-    void clearTables();
 
     boolean addTable(@NotNull P table);
 

@@ -17,8 +17,6 @@ public interface IRegistration<T extends ITeam, D extends IDiscipline> {
 
     void setDisciplines(@NotNull Collection<D> disciplines);
 
-    void clearDisciplines();
-
     boolean addDiscipline(@NotNull D discipline);
 
     boolean removeDiscipline(@NotNull D discipline);

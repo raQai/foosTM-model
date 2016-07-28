@@ -12,8 +12,6 @@ public interface ITeam<P extends IPlayer> {
 
     void setPlayers(@NotNull Collection<P> players);
 
-    void clearPlayers();
-
     void addPlayer(@NotNull P player);
 
     void removePlayer(@NotNull P player);

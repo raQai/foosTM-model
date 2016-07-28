@@ -13,8 +13,6 @@ public interface ITournament<D extends IDiscipline, R extends IRegistration> {
 
     void setDisciplines(@NotNull Collection<D> disciplines);
 
-    void clearDisciplines();
-
     boolean addDiscipline(@NotNull D discipline);
 
     boolean removeDiscipline(@NotNull D discipline);
@@ -22,8 +20,6 @@ public interface ITournament<D extends IDiscipline, R extends IRegistration> {
     List<R> getRegistrations();
 
     void setRegistrations(@NotNull Collection<R> registrations);
-
-    void clearRegistrations();
 
     boolean addRegistration(@NotNull R registration);
 
