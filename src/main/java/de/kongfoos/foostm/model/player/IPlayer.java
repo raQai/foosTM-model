@@ -2,7 +2,7 @@ package de.kongfoos.foostm.model.player;
 
 import java.util.Date;
 
-interface IPlayer {
+public interface IPlayer {
 
     String getForename();
 

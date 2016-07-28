@@ -1,8 +1,8 @@
 package de.kongfoos.foostm.model.table;
 
-import de.kongfoos.foostm.model.match.MatchImpl;
+import de.kongfoos.foostm.model.match.IMatch;
 
-interface ITable<M extends MatchImpl> {
+public interface ITable<M extends IMatch> {
 
     int getID();
 

@@ -1,10 +1,10 @@
 package de.kongfoos.foostm.model.match;
 
-import de.kongfoos.foostm.model.team.TeamImpl;
+import de.kongfoos.foostm.model.team.ITeam;
 
 import javax.validation.constraints.NotNull;
 
-interface IMatch<T extends TeamImpl> {
+public interface IMatch<T extends ITeam> {
 
     T getTeam1();
 

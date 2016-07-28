@@ -1,12 +1,12 @@
 package de.kongfoos.foostm.model.team;
 
-import de.kongfoos.foostm.model.player.PlayerImpl;
+import de.kongfoos.foostm.model.player.IPlayer;
 
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 
-interface ITeam<P extends PlayerImpl> {
+public interface ITeam<P extends IPlayer> {
 
     List<P> getPlayers();
 

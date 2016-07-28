@@ -1,13 +1,13 @@
 package de.kongfoos.foostm.model.registration;
 
-import de.kongfoos.foostm.model.discipline.DisciplineImpl;
-import de.kongfoos.foostm.model.team.TeamImpl;
+import de.kongfoos.foostm.model.discipline.IDiscipline;
+import de.kongfoos.foostm.model.team.ITeam;
 
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 
-interface IRegistration<T extends TeamImpl, D extends DisciplineImpl> {
+public interface IRegistration<T extends ITeam, D extends IDiscipline> {
 
     T getTeam();
 
