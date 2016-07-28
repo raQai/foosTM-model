@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.Date;
 
-public abstract class PlayerBuilder<T extends PlayerImpl> {
+public abstract class APlayerBuilder<T extends APlayer> {
 
     private String forename;
     private String surname;
@@ -17,34 +17,34 @@ public abstract class PlayerBuilder<T extends PlayerImpl> {
     private Date birthDate = Date.from(Instant.now());
     private Gender gender = Gender.MALE;
 
-    protected PlayerBuilder(String forename, String surname) {
+    protected APlayerBuilder(String forename, String surname) {
         Preconditions.checkArgument(!Strings.isNullOrEmpty(forename), "empty forename is not allowed");
         Preconditions.checkArgument(!Strings.isNullOrEmpty(surname), "empty surname is not allowed");
         this.forename = forename;
         this.surname = surname;
     }
 
-    public PlayerBuilder<T> club(@NotNull String club) {
+    public APlayerBuilder<T> club(@NotNull String club) {
         this.club = club;
         return this;
     }
 
-    public PlayerBuilder<T> itsf(@NotNull String itsf) {
+    public APlayerBuilder<T> itsf(@NotNull String itsf) {
         this.itsf = itsf;
         return this;
     }
 
-    public PlayerBuilder<T> dtfb(@NotNull String dtfb) {
+    public APlayerBuilder<T> dtfb(@NotNull String dtfb) {
         this.dtfb = dtfb;
         return this;
     }
 
-    public PlayerBuilder<T> birthDate(@NotNull Date birthDate) {
+    public APlayerBuilder<T> birthDate(@NotNull Date birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    public PlayerBuilder<T> gender(@NotNull Gender gender) {
+    public APlayerBuilder<T> gender(@NotNull Gender gender) {
         this.gender = gender;
         return this;
     }

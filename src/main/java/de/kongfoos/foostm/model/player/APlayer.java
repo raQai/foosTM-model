@@ -1,6 +1,6 @@
 package de.kongfoos.foostm.model.player;
 
-public abstract class PlayerImpl implements IPlayer {
+public abstract class APlayer implements IPlayer {
 
     @Override
     public String getName() {
