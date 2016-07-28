@@ -1,5 +1,6 @@
 package de.kongfoos.foostm.model.player;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public interface IPlayer {
@@ -22,7 +23,7 @@ public interface IPlayer {
 
     boolean isFemale();
 
-    Date getBirthDate();
+    Calendar getBirthDate();
 
     void setBirthDate(Date birthDate);
 
