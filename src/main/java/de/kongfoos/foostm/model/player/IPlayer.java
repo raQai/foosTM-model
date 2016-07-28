@@ -12,13 +12,23 @@ interface IPlayer {
 
     void setSurname(String surname);
 
+    String getName();
+
     Gender getGender();
 
     void setGender(Gender gender);
 
+    boolean isMale();
+
+    boolean isFemale();
+
     Date getBirthDate();
 
     void setBirthDate(Date birthDate);
+
+    boolean isSenior();
+
+    boolean isJunior();
 
     String getItsf();
 
@@ -31,11 +41,5 @@ interface IPlayer {
     String getClub();
 
     void setClub(String club);
-
-    String getName();
-
-    boolean isMale();
-
-    boolean isFemale();
 
 }
