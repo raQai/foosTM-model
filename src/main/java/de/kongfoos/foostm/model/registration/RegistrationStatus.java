@@ -1,4 +1,4 @@
-package de.kongfoos.foostm.model;
+package de.kongfoos.foostm.model.registration;
 
 public enum RegistrationStatus {
     COMPLETE("Complete"),
