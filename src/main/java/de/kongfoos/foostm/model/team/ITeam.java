@@ -24,9 +24,4 @@ public interface ITeam<P extends IPlayer> {
 
     void setType(@NotNull Type type);
 
-    boolean isSingles();
-
-    boolean isDoubles();
-
-    boolean isTeam();
 }
