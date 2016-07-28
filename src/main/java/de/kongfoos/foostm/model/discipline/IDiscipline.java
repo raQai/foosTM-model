@@ -6,6 +6,7 @@ import de.kongfoos.foostm.model.team.TeamImpl;
 import de.kongfoos.foostm.model.team.Type;
 
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -25,17 +26,31 @@ interface IDiscipline<T extends TeamImpl, M extends MatchImpl<T>, P extends Tabl
 
     List<Predicate<T>> getParticipationRules();
 
+    void setPatricipationRules(@NotNull Collection<Predicate<T>> predicates);
+
+    void clearParticipationRules();
+
     void addRule(@NotNull Predicate<T> predicate);
+
+    boolean allowsParticipation(@NotNull T team);
 
     List<T> getTeams();
 
-    List<T> getTeams(Predicate<T> predicate);
+    List<T> getTeams(@NotNull Predicate<T> predicate);
+
+    void setTeams(@NotNull Collection<T> teams);
+
+    void clearTeams();
 
     boolean addTeam(@NotNull T team);
 
     boolean removeTeam(@NotNull T team);
 
     List<M> getMatches();
+
+    void setMatches(@NotNull Collection<M> matches);
+
+    void clearMatches();
 
     boolean addMatch(@NotNull M match);
 
@@ -45,12 +60,14 @@ interface IDiscipline<T extends TeamImpl, M extends MatchImpl<T>, P extends Tabl
 
     List<P> getTables();
 
+    void setTables(@NotNull Collection<P> tables);
+
+    void clearTables();
+
     boolean addTable(@NotNull P table);
 
     boolean removeTable(@NotNull P table);
 
     List<P> getFreeTables();
-
-    boolean allowsParticipation(@NotNull T team);
 
 }
