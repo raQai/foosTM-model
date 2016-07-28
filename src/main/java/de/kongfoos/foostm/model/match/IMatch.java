@@ -18,10 +18,6 @@ interface IMatch<T extends TeamImpl> {
 
     void setStatus(@NotNull MatchStatus status);
 
-    T getWinner();
-
-    void setWinner(@NotNull T team);
-
     boolean isDraw();
 
     void setDraw();
@@ -29,5 +25,9 @@ interface IMatch<T extends TeamImpl> {
     boolean isOpen();
 
     void setOpen();
+
+    T getWinner();
+
+    void setWinner(@NotNull T team);
 
 }
