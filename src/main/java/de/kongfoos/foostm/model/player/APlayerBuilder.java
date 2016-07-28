@@ -5,6 +5,7 @@ import com.google.common.base.Strings;
 
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
+import java.util.Calendar;
 import java.util.Date;
 
 public abstract class APlayerBuilder<T extends APlayer> {
@@ -14,7 +15,7 @@ public abstract class APlayerBuilder<T extends APlayer> {
     private String club = "";
     private String itsf = "";
     private String dtfb = "";
-    private Date birthDate = Date.from(Instant.now());
+    private Calendar birthDate = Calendar.getInstance();
     private Gender gender = Gender.MALE;
 
     protected APlayerBuilder(String forename, String surname) {
@@ -39,7 +40,7 @@ public abstract class APlayerBuilder<T extends APlayer> {
         return this;
     }
 
-    public APlayerBuilder<T> birthDate(@NotNull Date birthDate) {
+    public APlayerBuilder<T> birthDate(@NotNull Calendar birthDate) {
         this.birthDate = birthDate;
         return this;
     }

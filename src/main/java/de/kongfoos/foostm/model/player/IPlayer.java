@@ -1,23 +1,23 @@
 package de.kongfoos.foostm.model.player;
 
+import javax.validation.constraints.NotNull;
 import java.util.Calendar;
-import java.util.Date;
 
 public interface IPlayer {
 
     String getForename();
 
-    void setForename(String forename);
+    void setForename(@NotNull String forename);
 
     String getSurname();
 
-    void setSurname(String surname);
+    void setSurname(@NotNull String surname);
 
     String getName();
 
     Gender getGender();
 
-    void setGender(Gender gender);
+    void setGender(@NotNull Gender gender);
 
     boolean isMale();
 
@@ -25,7 +25,7 @@ public interface IPlayer {
 
     Calendar getBirthDate();
 
-    void setBirthDate(Date birthDate);
+    void setBirthDate(Calendar birthDate);
 
     boolean isSenior();
 
