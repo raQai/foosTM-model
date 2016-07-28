@@ -13,6 +13,18 @@ import java.util.stream.Collectors;
 public abstract class ADiscipline<T extends ATeam, M extends AMatch<T>, P extends ATable<M>>
         implements IDiscipline<T, M, P> {
 
+    private long id;
+
+    @Override
+    public long getID() {
+        return id;
+    }
+
+    @Override
+    public void setID(long id) {
+        this.id = id;
+    }
+
     @Override
     public void setPatricipationRules(@NotNull Collection<Predicate<T>> predicates) {
         getParticipationRules().forEach(this::removeRule);
