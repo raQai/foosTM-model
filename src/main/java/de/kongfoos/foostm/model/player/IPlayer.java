@@ -6,16 +6,28 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-@Entity(name="player")
+@Entity
+//@MappedSuperclass
 @Table(name="player")
-interface IPlayer {
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Access(AccessType.PROPERTY)
+public interface IPlayer {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="pid")
+	long getId();
+	
+	void setId(long id);
+	
 	@Column(name="forename")
     String getForename();
 
@@ -36,7 +48,6 @@ interface IPlayer {
 
     void setBirthDate(Date birthDate);
 
-    @Id
     @Column(name="itsf")
     String getItsf();
 
