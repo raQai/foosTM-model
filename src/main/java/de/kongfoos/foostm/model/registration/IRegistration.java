@@ -4,6 +4,7 @@ import de.kongfoos.foostm.model.discipline.DisciplineImpl;
 import de.kongfoos.foostm.model.team.TeamImpl;
 
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.List;
 
 interface IRegistration<T extends TeamImpl, D extends DisciplineImpl> {
@@ -13,6 +14,10 @@ interface IRegistration<T extends TeamImpl, D extends DisciplineImpl> {
     void setTeam(@NotNull T team);
 
     List<D> getDisciplines();
+
+    void setDisciplines(@NotNull Collection<D> disciplines);
+
+    void clearDisciplines();
 
     boolean addDiscipline(@NotNull D discipline);
 
