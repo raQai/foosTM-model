@@ -38,9 +38,9 @@ public interface IDiscipline<T extends ITeam, M extends IMatch<T>, P extends ITa
 
     void setTeams(@NotNull Collection<T> teams);
 
-    List<T> getTeams(@NotNull Predicate<T> predicate);
-
     void clearTeams();
+
+    List<T> getTeams(@NotNull Predicate<T> predicate);
 
     boolean addTeam(@NotNull T team);
 
