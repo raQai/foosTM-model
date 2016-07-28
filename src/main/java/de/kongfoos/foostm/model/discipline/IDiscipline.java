@@ -28,7 +28,9 @@ public interface IDiscipline<T extends ITeam, M extends IMatch<T>, P extends ITa
 
     void setPatricipationRules(@NotNull Collection<Predicate<T>> predicates);
 
-    void addRule(@NotNull Predicate<T> predicate);
+    boolean addRule(@NotNull Predicate<T> predicate);
+
+    boolean removeRule(@NotNull Predicate<T> predicate);
 
     boolean allowsParticipation(@NotNull T team);
 
