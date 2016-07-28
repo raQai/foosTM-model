@@ -28,7 +28,7 @@ public abstract class DisciplineImpl<T extends TeamImpl, M extends MatchImpl<T>,
 
     @Override
     public List<P> getFreeTables() {
-        return getTables().stream().filter(t -> t.isFree()).collect(Collectors.toList());
+        return getTables().stream().filter(TableImpl::isFree).collect(Collectors.toList());
     }
 
     @Override
