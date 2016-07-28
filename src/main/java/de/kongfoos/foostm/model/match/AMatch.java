@@ -6,6 +6,18 @@ import javax.validation.constraints.NotNull;
 
 public abstract class AMatch<T extends ATeam> implements IMatch<T> {
 
+    private long id;
+
+    @Override
+    public long getID() {
+        return id;
+    }
+
+    @Override
+    public void setID(long id) {
+        this.id = id;
+    }
+
     @Override
     public T getWinner() {
         switch (getStatus()) {
