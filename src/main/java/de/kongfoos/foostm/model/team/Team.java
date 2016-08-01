@@ -1,5 +1,6 @@
 package de.kongfoos.foostm.model.team;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Team<P extends Player> implements ITeam<P> {
 	private long id;
 	
 	@OneToMany(targetEntity = Player.class)
-    private List<P> players;
+    private List<P> players = new ArrayList<P>();
 	
 	@Column(name = "name")
     private String name;
