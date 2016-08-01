@@ -6,9 +6,9 @@ import javax.validation.constraints.NotNull;
 
 public interface IMatch<T extends ITeam> {
 
-    long getID();
+    long getId();
 
-    void setID(long id);
+    void setId(long id);
 
     T getTeam1();
 

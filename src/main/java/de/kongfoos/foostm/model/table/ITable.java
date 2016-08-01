@@ -4,9 +4,9 @@ import de.kongfoos.foostm.model.match.IMatch;
 
 public interface ITable<M extends IMatch> {
 
-    long getID();
+    long getId();
 
-    void setID(long id);
+    void setId(long id);
 
     int getNumber();
 

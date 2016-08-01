@@ -1,19 +1,21 @@
 package de.kongfoos.foostm.model.discipline;
 
-import com.google.common.collect.Lists;
-import de.kongfoos.foostm.model.team.ATeam;
-import de.kongfoos.foostm.model.team.Type;
-
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.function.Predicate;
 
-public abstract class ADisciplineBuilder<T extends ADiscipline> {
+import javax.validation.constraints.NotNull;
+
+import com.google.common.collect.Lists;
+
+import de.kongfoos.foostm.model.team.ITeam;
+import de.kongfoos.foostm.model.team.Type;
+
+public abstract class ADisciplineBuilder<T extends IDiscipline> {
 
     private final String name;
     private final String shortName;
     private final Type type;
-    private final List<Predicate<? extends ATeam>> rules = Lists.newArrayList();
+    private final List<Predicate<? extends ITeam>> rules = Lists.newArrayList();
 
     protected ADisciplineBuilder(@NotNull String name, @NotNull String shortName, @NotNull Type type) {
         this.name = name;
@@ -21,7 +23,7 @@ public abstract class ADisciplineBuilder<T extends ADiscipline> {
         this.type = type;
     }
 
-    public ADisciplineBuilder<T> addRule(Predicate<? extends ATeam> predicate) {
+    public ADisciplineBuilder<T> addRule(Predicate<? extends ITeam> predicate) {
         this.rules.add(predicate);
         return this;
     }

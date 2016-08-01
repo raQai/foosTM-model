@@ -1,68 +1,62 @@
 package de.kongfoos.foostm.model.player;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 
-@Entity
-@Table(name = "player")
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+
 public interface IPlayer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     long getId();
 
     void setId(long id);
 
-    @Column(name = "forename")
     String getForename();
 
     void setForename(@NotNull String forename);
 
-    @Column(name = "surname")
     String getSurname();
 
     void setSurname(@NotNull String surname);
 
-    @Transient
     String getName();
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "gender")
     Gender getGender();
 
     void setGender(@NotNull Gender gender);
 
-    @Transient
     boolean isMale();
 
-    @Transient
     boolean isFemale();
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "birth_date")
     Calendar getBirthDate();
 
     void setBirthDate(Calendar birthDate);
 
-    @Transient
     boolean isSenior();
 
-    @Transient
     boolean isJunior();
 
-    @Column(name = "itsf")
     String getItsf();
 
     void setItsf(String itsf);
 
-    @Column(name = "dtfb")
     String getDtfb();
 
     void setDtfb(String dtfb);
 
-    @Column(name = "club")
     String getClub();
 
     void setClub(String club);

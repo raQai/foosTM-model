@@ -2,7 +2,7 @@ package de.kongfoos.foostm.model.table;
 
 import javax.validation.constraints.NotNull;
 
-public abstract class ATableBuilder<T extends ATable> {
+public abstract class ATableBuilder<T extends ITable> {
 
     private final int number;
     private final TableType type;

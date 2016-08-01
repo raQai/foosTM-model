@@ -12,9 +12,9 @@ import java.util.function.Predicate;
 
 public interface IDiscipline<T extends ITeam, M extends IMatch<T>, P extends ITable<M>> {
 
-    long getID();
+    long getId();
 
-    void setID(long id);
+    void setId(long id);
 
     String getName();
 
