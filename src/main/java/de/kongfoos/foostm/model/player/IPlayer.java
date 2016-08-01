@@ -5,15 +5,12 @@ import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 
 @Entity
-//@MappedSuperclass
 @Table(name = "player")
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-//@Access(AccessType.PROPERTY)
 public interface IPlayer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "pid")
+    @Column(name = "id")
     long getId();
 
     void setId(long id);

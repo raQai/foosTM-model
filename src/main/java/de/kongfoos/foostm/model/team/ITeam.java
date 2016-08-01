@@ -8,21 +8,18 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-//@MappedSuperclass
 @Table(name = "team")
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Access(AccessType.PROPERTY)
 public interface ITeam<P extends IPlayer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "tid")
+    @Column(name = "id")
     long getId();
 
     void setId(long id);
 
     @OneToMany(targetEntity = IPlayer.class)
-//	@JoinColumn(name="pid", referencedColumnName="tid")
 //  FIXME is @Column(name = "players") needed here?
     List<P> getPlayers();
 
