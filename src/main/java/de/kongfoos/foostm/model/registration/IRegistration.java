@@ -1,13 +1,19 @@
 package de.kongfoos.foostm.model.registration;
 
-import de.kongfoos.foostm.model.discipline.IDiscipline;
-import de.kongfoos.foostm.model.team.ITeam;
-
-import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 
-public interface IRegistration<T extends ITeam, D extends IDiscipline> {
+import javax.validation.constraints.NotNull;
+
+import de.kongfoos.foostm.model.discipline.IDiscipline;
+import de.kongfoos.foostm.model.player.IPlayer;
+import de.kongfoos.foostm.model.team.ITeam;
+
+public interface IRegistration<T extends ITeam<? extends IPlayer>, D extends IDiscipline> {
+
+    long getId();
+
+    void setId(long id);
 
     T getTeam();
 

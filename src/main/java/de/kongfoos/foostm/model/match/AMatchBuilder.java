@@ -1,8 +1,8 @@
 package de.kongfoos.foostm.model.match;
 
-import de.kongfoos.foostm.model.team.ATeam;
+import de.kongfoos.foostm.model.team.ITeam;
 
-public abstract class AMatchBuilder<M extends AMatch, T extends ATeam> {
+public abstract class AMatchBuilder<M extends IMatch, T extends ITeam> {
 
     private final T team1;
     private final T team2;

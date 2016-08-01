@@ -1,10 +1,27 @@
 package de.kongfoos.foostm.model.match;
 
-import de.kongfoos.foostm.model.team.ATeam;
-
 import javax.validation.constraints.NotNull;
 
-public abstract class AMatch<T extends ATeam> implements IMatch<T> {
+import de.kongfoos.foostm.model.player.Player;
+import de.kongfoos.foostm.model.team.Team;
+
+public class Match<T extends Team<? extends Player>> implements IMatch<T> {
+
+	private long id;
+    private T team1;
+    private T team2;
+    private MatchStatus status;
+
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
     @Override
     public T getWinner() {
@@ -48,5 +65,35 @@ public abstract class AMatch<T extends ATeam> implements IMatch<T> {
     @Override
     public void setOpen() {
         setStatus(MatchStatus.OPEN);
+    }
+    
+    @Override
+    public T getTeam1() {
+        return team1;
+    }
+
+    @Override
+    public void setTeam1(@NotNull T team) {
+        this.team1 = team;
+    }
+
+    @Override
+    public T getTeam2() {
+        return team2;
+    }
+
+    @Override
+    public void setTeam2(@NotNull T team) {
+        this.team2 = team;
+    }
+
+    @Override
+    public MatchStatus getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(@NotNull MatchStatus status) {
+        this.status = status;
     }
 }

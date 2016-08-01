@@ -1,14 +1,13 @@
 package de.kongfoos.foostm.model.player;
 
+import java.util.Calendar;
+
+import javax.validation.constraints.NotNull;
+
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 
-import javax.validation.constraints.NotNull;
-import java.time.Instant;
-import java.util.Calendar;
-import java.util.Date;
-
-public abstract class APlayerBuilder<T extends APlayer> {
+public abstract class APlayerBuilder<P extends IPlayer> {
 
     private String forename;
     private String surname;
@@ -25,35 +24,35 @@ public abstract class APlayerBuilder<T extends APlayer> {
         this.surname = surname;
     }
 
-    public APlayerBuilder<T> club(@NotNull String club) {
+    public APlayerBuilder<P> club(@NotNull String club) {
         this.club = club;
         return this;
     }
 
-    public APlayerBuilder<T> itsf(@NotNull String itsf) {
+    public APlayerBuilder<P> itsf(@NotNull String itsf) {
         this.itsf = itsf;
         return this;
     }
 
-    public APlayerBuilder<T> dtfb(@NotNull String dtfb) {
+    public APlayerBuilder<P> dtfb(@NotNull String dtfb) {
         this.dtfb = dtfb;
         return this;
     }
 
-    public APlayerBuilder<T> birthDate(@NotNull Calendar birthDate) {
+    public APlayerBuilder<P> birthDate(@NotNull Calendar birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    public APlayerBuilder<T> gender(@NotNull Gender gender) {
+    public APlayerBuilder<P> gender(@NotNull Gender gender) {
         this.gender = gender;
         return this;
     }
 
-    protected abstract T getInstance();
+    protected abstract P getInstance();
 
-    public T build() {
-        final T instance = getInstance();
+    public P build() {
+        final P instance = getInstance();
         instance.setForename(forename);
         instance.setSurname(surname);
         instance.setClub(club);

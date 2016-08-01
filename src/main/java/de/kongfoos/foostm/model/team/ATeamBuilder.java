@@ -1,14 +1,16 @@
 package de.kongfoos.foostm.model.team;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.Lists;
-import de.kongfoos.foostm.model.player.APlayer;
-
-import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class ATeamBuilder<T extends ATeam, P extends APlayer> {
+import javax.validation.constraints.NotNull;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.Lists;
+
+import de.kongfoos.foostm.model.player.IPlayer;
+
+public abstract class ATeamBuilder<T extends ITeam, P extends IPlayer> {
 
     private final List<P> players = Lists.newArrayList();
     private final Type type;

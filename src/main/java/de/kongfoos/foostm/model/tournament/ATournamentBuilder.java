@@ -1,27 +1,29 @@
 package de.kongfoos.foostm.model.tournament;
 
-import com.google.common.collect.Lists;
-import de.kongfoos.foostm.model.discipline.ADiscipline;
-import de.kongfoos.foostm.model.registration.ARegistration;
-
-import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class ATournamentBuilder<T extends ATournament> {
-    private List<? extends ADiscipline> disciplines = Lists.newArrayList();
-    private List<? extends ARegistration> registrations = Lists.newArrayList();
+import javax.validation.constraints.NotNull;
+
+import com.google.common.collect.Lists;
+
+import de.kongfoos.foostm.model.discipline.IDiscipline;
+import de.kongfoos.foostm.model.registration.IRegistration;
+
+public abstract class ATournamentBuilder<T extends ITournament> {
+    private List<? extends IDiscipline> disciplines = Lists.newArrayList();
+    private List<? extends IRegistration> registrations = Lists.newArrayList();
 
     protected ATournamentBuilder() {
     }
 
-    public ATournamentBuilder<T> setDisciplines(@NotNull Collection<? extends ADiscipline> disciplines) {
-        this.disciplines = (List<? extends ADiscipline>) disciplines;
+    public ATournamentBuilder<T> setDisciplines(@NotNull Collection<? extends IDiscipline> disciplines) {
+        this.disciplines = (List<? extends IDiscipline>) disciplines;
         return this;
     }
 
-    public ATournamentBuilder<T> setRegistrations(@NotNull Collection<? extends ARegistration> registrations) {
-        this.registrations = (List<? extends ARegistration>) registrations;
+    public ATournamentBuilder<T> setRegistrations(@NotNull Collection<? extends IRegistration> registrations) {
+        this.registrations = (List<? extends IRegistration>) registrations;
         return this;
     }
 

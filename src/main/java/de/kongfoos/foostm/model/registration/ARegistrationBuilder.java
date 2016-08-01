@@ -1,25 +1,26 @@
 package de.kongfoos.foostm.model.registration;
 
-import de.kongfoos.foostm.model.discipline.ADiscipline;
-import de.kongfoos.foostm.model.team.ATeam;
-
-import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class ARegistrationBuilder<R extends ARegistration, T extends ATeam> {
+import javax.validation.constraints.NotNull;
+
+import de.kongfoos.foostm.model.discipline.IDiscipline;
+import de.kongfoos.foostm.model.team.ITeam;
+
+public abstract class ARegistrationBuilder<R extends IRegistration, T extends ITeam> {
 
     private final T team;
-    private List<? extends ADiscipline> disciplines = Collections.emptyList();
+    private List<? extends IDiscipline> disciplines = Collections.emptyList();
     private RegistrationStatus status = RegistrationStatus.OPEN;
 
     public ARegistrationBuilder(@NotNull T team) {
         this.team = team;
     }
 
-    public ARegistrationBuilder<R, T> setDisciplines(@NotNull Collection<? extends ADiscipline> disciplines) {
-        this.disciplines = (List<? extends ADiscipline>) disciplines;
+    public ARegistrationBuilder<R, T> setDisciplines(@NotNull Collection<? extends IDiscipline> disciplines) {
+        this.disciplines = (List<? extends IDiscipline>) disciplines;
         return this;
     }
 

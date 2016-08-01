@@ -9,6 +9,10 @@ import java.util.List;
 
 public interface ITournament<D extends IDiscipline, R extends IRegistration> {
 
+    long getId();
+
+    void setId(long id);
+
     List<D> getDisciplines();
 
     void setDisciplines(@NotNull Collection<D> disciplines);

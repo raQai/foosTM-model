@@ -6,6 +6,10 @@ import javax.validation.constraints.NotNull;
 
 public interface IMatch<T extends ITeam> {
 
+    long getId();
+
+    void setId(long id);
+
     T getTeam1();
 
     void setTeam1(@NotNull T team);
